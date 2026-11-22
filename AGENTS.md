@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- Storefront is a single RTL page (`src/routes/index.tsx`) composed from `src/components/store/*`; nav links are in-page anchors because the brief asks for one scrolling store.
+- Cart state lives in `CartProvider` (localStorage) with pure helpers in `src/lib/cart.ts`; product catalog and Toman prices live only in `src/lib/products.ts` so price changes touch one file.
+- Hero video is a CDN asset re-encoded with a short keyframe interval (`-g 3`, no B-frames) so scroll-scrubbing `currentTime` stays smooth; re-encode the same way when replacing it.
